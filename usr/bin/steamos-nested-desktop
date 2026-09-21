@@ -9,6 +9,10 @@ unset LD_PRELOAD
 # to ensure xdg-desktop-portal doesn't try to start desktop portals
 unset XDG_DESKTOP_PORTAL_DIR
 
+# Unset WAYLAND_DISPLAY since gamescope exports an empty WAYLAND_DISPLAY=
+# which causes KWin to fail to initialize nested desktop
+unset WAYLAND_DISPLAY
+
 function cleanup()
 {
     # Flush fuse mounts beneath here
